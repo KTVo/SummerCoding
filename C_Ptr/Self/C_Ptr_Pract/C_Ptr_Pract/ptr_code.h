@@ -267,6 +267,9 @@ char* strAllocation(const char* inStr)
 	strcat_s(s, sizeof(s) + 20, inStr);
 	strcat_s(s, sizeof(s) + 20, "\n");
 
+
+
+
 	return s;
 }
 void vid17()
@@ -274,9 +277,45 @@ void vid17()
 	printf("\n%s", strAllocation("Kevin"));
 
 	printf("\n%s", strAllocation("world"));
+
+	printf("\n\nKey: <datatype>* s = (<datatype *>)malloc(<size>)\n");
+	printf("\nmalloc(size) allocates memory from heap. Portion of memory reserved for dyn. allocation.\n");
+
+	printf("\n\n----------------------\n");
+	printf("\n| Static compile time |\n");
+	printf("\n----------------------\n");
+	printf("\n|                     |\n");
+	printf("\n|                     |\n");
+	printf("\n----------------------\n");
+	printf("\n| Heap - runtime     |\n");
+	printf("\n----------------------\n");
+	printf("\n|                    |\n");
+	printf("\n|       Data         |\n");
+	printf("\n----------------------\n");
+	printf("\n|                    |\n");
+	printf("\n|       Code         |\n");
+	printf("\n----------------------\n\n");
 }
 
+//Code below will demonstrate how to use malloc efficiently
+//by using sizeof("hello"); you can allocate just the right
+//amount of memory to now overflow or waste/have unused memory
 void vid18()
 {
+	char* s; 
+	int strSZ = sizeof("Hello World\n");	//calculate the number of bytes needed to allocate for this string
 
+	printf("sizeof(\"Hello World\\n\") = %d", strSZ);	
+
+	s = (char*)malloc(strSZ);	//Allocate memory based on the calculate number of bytes
+								//assigning address to the string s
+
+	if (s == NULL)
+		printf("\nFailed to allocate memory.\n");
+	else
+	{
+		strncpy_s(s, strSZ, "Hello World\n", strSZ);
+
+		printf("\ns = %s\n", s);
+	}
 }
