@@ -1,15 +1,23 @@
 // C_Ptr_Pract.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include "stdio.h"
-#include "ptr_code.h"   //Functions for the follow-along examples 
-int main()
+#include "stdio.h"		//For input/output
+#include "malloc.h"		//For memory allocation (<datatype>*) malloc(<size_int>);
+#include "string.h"		//For string concatination with with strcat(<string_var>, "<a_string>");
+
+#include "ptr_code.h"   //Functions for the follow-along examples
+int main(int argc, char** argv)
 {
 	//vid6();
 	//vid8();
 	//vid13();
 	//myTest13();
-	vid14();
+	//vid14();
+
+	//vid15(argc, argv);
+	//vid16();
+
+	vid17();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

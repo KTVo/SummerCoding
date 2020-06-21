@@ -106,14 +106,177 @@ void myTest13()
 	printf("**ptr = %d\n", **pptr);
 }
 
-
+//Compiler with Visual Studios does not accept char *words[5] = { "zero", "one", "two" };
+//Needs to be char words[numWords][wordLength]; however will not with with example **ptr
+//On the other hand, Netbeans with Cygwin works flawlessly for the following code.
+/*
 void vid14()
 {
-	int wordLength = 40;
+	const int wordLength = 5;	//This includes '\0' in "zero\0"
+	const int numWords = 3;	//Number of words in the array words[][]
 	char *words[wordLength] = { "zero", "one", "two" };
 	char* ptr,
 		** pptr;
 
+	
+
 	for (int i = 0; i < numWords; i++)
-		printf("%s\n", words[i]);
+	{
+		pptr = words + i;	//pptr acts as a temp for the addresses of the array
+
+		ptr = *pptr;	//dereference pptr by one layer to be stored by ptr
+		               //*pptr = the adress of (words + i)  instead of string value
+
+	    //while-loop *ptr to print out each char individual with space in between
+		while (*ptr != 0)
+		{
+			printf("%c ", *ptr);
+			ptr++;
+		}
+		
+	}
+}
+*/
+
+
+void vid15(int argc, char** argv)
+{
+	printf("\nThis section illustrates how **argv being a double pointer is a multi-indirection/dereference.\nSo, it can be dereferences 2x to get the value of the commandline arguments.\n");
+	printf("\n");
+
+	for (int i = 0; i < argc; i++)
+	{
+		printf("*(argv + % d) = %s\n", i, *(argv + i));
+	}
+
+	printf("\n");
+}
+
+//Shows what generic/void pointers do
+//Generic pointers is similar to how templates are as 
+//you will have to declare its data type as you use it
+void vid16()
+{
+
+	printf("\nGeneric Pointers are similar to how templates work in the way that it is meant to point to any data type.\n");
+	printf("Then, when needed to retrieve the value, derefence with the data type like so: *(int*) <generic_ptr_name>\n\n");
+
+	printf("You'd use generic pointers when you have a prog. with lots of data types and do not want a big mess with all the\n");
+	printf("different tyes of pointers.\n\n");
+	
+	void* generic_ptr;
+
+	const int sz = 10;
+	int num[sz];
+	char character[sz];
+
+	//Assign ints to array
+	for (int i = 0; i < sz; i++)
+		num[i] = 100 - i;
+
+	//Assign ints to array
+	for (int i = 0; i < sz; i++)
+		character[i] = 64 + i;
+
+	//char strArr[sz][6] = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten" }; //Will not work with Visual Studio's compiler
+
+	printf("\n***************************************************\n");
+	printf("*    Using same Generic Pointer with INT now      *");
+	printf("\n***************************************************\n");
+
+
+	generic_ptr = num;	//Assign generic pointer to address of int array
+
+	for (int i = 0; i < sz; i++)
+	{
+		printf("*(int*) (generic_ptr + %i) = %d\n", i, *(int*)generic_ptr);
+
+		generic_ptr = (int*)generic_ptr + 1;	//increments
+											    //Has to be done this way *(int*)generic_ptr++; will not work
+	}
+
+	printf("\n***************************************************\n");
+	printf("*    Using same Generic Pointer with CHAR now     *\n");
+	printf("***************************************************\n");
+
+	generic_ptr = character;	//Assign generic pointer to address of character array
+
+	for (int i = 0; i < sz; i++)
+	{
+		printf("\n*(char*)generic_ptr = %c", *(char*)generic_ptr);
+
+		generic_ptr = (char*)generic_ptr + 1;	//increments
+											    //Has to be done this way *(char*)generic_ptr++; will not work
+	}
+
+	
+	printf("\n");
+
+	//Will not work with Visual Studio's compiler, but works on Netbeans + Cygwin
+	/*
+
+	printf("\n***************************************************\n");
+	printf("*    Using same Generic Pointer with String now     *\n");
+	printf("***************************************************\n");
+
+	generic_ptr = strArr;
+
+	for (int i = 0; i < sz; i++)
+	{
+		printf("\n*(char**)generic_ptr = %s", *(char**)generic_ptr);	//note that char** represents char* strArr[]; which means a pointer-to-a-pointer-to-a-char
+
+		generic_ptr = (char**)generic_ptr + 1;
+	}
+
+	printf("\n");
+	*/
+
+
+
+
+	printf("\nKey: Only increment this way: <generic_ptr_name> = (int*) <generic_ptr_name> + 1;\n");
+
+	printf("\nKey: note that if point to an array of strings, char** represents char* strArr[]; which means a pointer-to-a-pointer-to-a-char\n\n");
+	
+}
+
+
+//Demonstrates memmory allocation
+//Creating usable memory space during runtime
+
+//allocates then concatinates parameter string with the string allocated
+
+char* strAllocation(const char* inStr)
+{
+	char* s;	//creating char ptr to point to the soon-to-be allocated memory for a string
+
+	const int maxStrLen = 100;
+
+	s = (char*)malloc(maxStrLen);
+
+	s[0] = 0;	//This assigns the allocated memory to NULL to create an empty string
+	
+	//strcat_s(s, size_to_allocate, "SOME STRING VALUE") was used to prevent overloads that comes from strcat(s, "SOME STRING VALUE");
+
+	//added tr
+	char addStr[] = "Hello ";
+
+	strcat_s(s, sizeof(s) + sizeof(addStr), addStr); //attaches the string "Kevin" to the allocated memeory 
+						//for the empty string
+
+	strcat_s(s, sizeof(s) + 20, inStr);
+	strcat_s(s, sizeof(s) + 20, "\n");
+
+	return s;
+}
+void vid17()
+{
+	printf("\n%s", strAllocation("Kevin"));
+
+	printf("\n%s", strAllocation("world"));
+}
+
+void vid18()
+{
+
 }
