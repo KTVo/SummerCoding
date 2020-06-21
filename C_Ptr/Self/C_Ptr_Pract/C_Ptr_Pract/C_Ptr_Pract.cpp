@@ -6,7 +6,10 @@
 int main()
 {
 	//vid6();
-	vid8();
+	//vid8();
+	//vid13();
+	//myTest13();
+	vid14();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

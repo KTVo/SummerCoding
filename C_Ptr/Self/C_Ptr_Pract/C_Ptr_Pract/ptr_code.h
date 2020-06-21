@@ -33,7 +33,7 @@ void vid8()
 
 	while(str[i+1] != '\0')
 	{
-		printf("str[%d] = '%c' -> &str[%d] = %p <- Adds 0x%p\n", i, str[i], i, &str[i], &str[i+1]-&str[i]);
+		printf("str[%d] = '%c' -> &str[%d] = %p <- Adds 0x%p\n", i, str[i], i, &str[i], (&str[i+1]-&str[i]));
 		
 		i++;
 	}
@@ -44,4 +44,76 @@ void vid8()
 	printf("\nKey: &str == &str[0], the address of the array == the addr of the 1st index b/c its where the array beings.\n");
 
 	printf("\n");
+}
+
+
+//Multiple Indirection/Dereferences with INT
+//Multiple indirection are derefences that requires multiple steps to 
+//obtain the data
+void vid13()
+{
+	printf("\nMultiple Indirection/Dereferences with INT\n");
+	printf("\n\tThe code shows how a pointer can also have pointers, where eventually you can");
+	printf("\n\tde-reference it layer by layer to obtain the value within the final address.\n\n");
+
+	const int LENGTH = 3;
+	int data[LENGTH];	//Array of ints
+	int* ptr;	        //pointer to an int
+	int** pptr;	        //pointer to a pointer
+
+	for (int i = 0; i < LENGTH; i++)
+		data[i] = 100-i;
+
+
+	ptr = data;	//Pointer is pointing to the head of the array
+
+	pptr = &ptr;	//Pointer is pointing to another pointer
+
+	for (int i = 0; i < LENGTH; i++)
+	{
+		printf("data[%d] = %d\n", i, data[i]);
+		printf("&data[%d] = %p\n", i, &data[i]);
+		printf("*ptr = %d\n", *ptr);
+		printf("*pptr = %p\n", *pptr);
+		printf("&ptr = %p, pptr = %p\n", &ptr, pptr);
+		printf("**pptr = %d <- same value as *ptr\n\n\n", **pptr);
+	
+
+
+		ptr++;	//Increments pointer
+			    //How does incrementing the pointer also increments (pptr) the pointer pointing to that pointer?
+				//Even if pptr = &ptr; is out side of the for-loop
+
+	}
+
+
+}
+
+//Me having found with "double pointers" (**pptr)
+//Having ** when making a pointer pointing to another pointer
+//*** means there will be 3 layers of dereferencing 
+void myTest13()
+{
+	int num = 100;
+
+	int* ptr;
+	int	** pptr;
+	ptr = &num;
+	pptr = &ptr;
+
+	printf("num = %d\n", num);
+	printf("*ptr = %d\n", *ptr);
+	printf("**ptr = %d\n", **pptr);
+}
+
+
+void vid14()
+{
+	int wordLength = 40;
+	char *words[wordLength] = { "zero", "one", "two" };
+	char* ptr,
+		** pptr;
+
+	for (int i = 0; i < numWords; i++)
+		printf("%s\n", words[i]);
 }
