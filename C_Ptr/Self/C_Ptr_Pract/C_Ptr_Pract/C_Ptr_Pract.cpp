@@ -1,6 +1,19 @@
+/*
+ * Name: Kevin Vo
+ * Filename: C_Ptr_Pract.ccp
+ * Date: June 20, 2020
+ * Description: A follow-along tutorial for concepts and applications of pointers in C.
+ */
+
 // C_Ptr_Pract.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+
+
+#define _CRT_SECURE_NO_WARNINGS	//Demands that compiler igonores this error/warning (situational)
+								//is used for vid18_ignore_error() in ptr_code.h
+
+#include "stdlib.h"		//For exit(0)
 #include "stdio.h"		//For input/output
 #include "malloc.h"		//For memory allocation (<datatype>*) malloc(<size_int>);
 #include "string.h"		//For string concatination with with strcat(<string_var>, "<a_string>");
@@ -19,7 +32,11 @@ int main(int argc, char** argv)
 
 	//vid17();
 
-	vid18();
+	//vid18_ignore_error();
+
+	//vid18_fix();
+
+	//vid19();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

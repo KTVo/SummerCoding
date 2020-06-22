@@ -1,3 +1,10 @@
+/*
+ * Name: Kevin Vo
+ * Filename: ptr_code.ccp
+ * Date: June 20, 2020
+ * Description: A follow-along tutorial for concepts and applications of pointers in C.
+ */
+
 #pragma once
 
 void vid6()
@@ -274,9 +281,17 @@ char* strAllocation(const char* inStr)
 }
 void vid17()
 {
-	printf("\n%s", strAllocation("Kevin"));
+	void* generic_ptr = strAllocation("Kevin");
 
-	printf("\n%s", strAllocation("world"));
+	printf("\n%s", (char*)generic_ptr);
+
+	free(generic_ptr);
+
+	generic_ptr = strAllocation("world");
+
+	printf("\n%s", generic_ptr);
+
+	free(generic_ptr);
 
 	printf("\n\nKey: <datatype>* s = (<datatype *>)malloc(<size>)\n");
 	printf("\nmalloc(size) allocates memory from heap. Portion of memory reserved for dyn. allocation.\n");
@@ -300,7 +315,36 @@ void vid17()
 //Code below will demonstrate how to use malloc efficiently
 //by using sizeof("hello"); you can allocate just the right
 //amount of memory to now overflow or waste/have unused memory
-void vid18()
+
+//#define _CRT_SECURE_NO_WARNINGS on line 4 in C_Ptr_Pract.cpp demands that compiler igonores this error/warning (situational)
+//This definition must be recognized first at the beginning
+
+void vid18_ignore_error()
+{
+	char* s;
+	int strSZ = sizeof("Hello World\n");	//calculate the number of bytes needed to allocate for this string
+
+	printf("sizeof(\"Hello World\\n\") = %d", strSZ);
+
+	s = (char*)malloc(strSZ);	//Allocate memory based on the calculate number of bytes
+								//assigning address to the string s
+
+	if (s == NULL)
+		printf("\nFailed to allocate memory.\n");
+	else
+	{
+		strncpy(s, "Hello World\n", strSZ);	//strncpy provided an 'error' because it was deprecated/obsolete
+											//use strncpy_s(source, size, str_val, size) is one solution
+											//or use #define _CRT_SECURE_NO_WARNINGS at the beginning for 
+											//compiler to ignore
+
+		printf("\ns = %s\n", s);
+
+		free(s);
+	}
+}
+
+void vid18_fix()
 {
 	char* s; 
 	int strSZ = sizeof("Hello World\n");	//calculate the number of bytes needed to allocate for this string
@@ -317,5 +361,47 @@ void vid18()
 		strncpy_s(s, strSZ, "Hello World\n", strSZ);
 
 		printf("\ns = %s\n", s);
+
+		free(s);
 	}
+}
+
+void vid19()
+{
+	printf("\nThis section shows the difference between malloc and calloc\n\n");
+
+	printf("\n(<datatype>*)malloc(size) - allocates memory as is, could be junk in there that can be overwritten.\n");
+	printf("\n(<datatype>*)calloc(size, sizeof(<datatype>) - allocates then assigns 0s immediately.\n\n");
+
+	char* s;
+
+	const int sz_to_allocate = 5;	//the size to allocate in bytes
+
+	printf("\nShowing malloc:\n-----------------\n");
+
+	s = (char*)malloc(sz_to_allocate);
+
+	for (int i = 0; i < sz_to_allocate; i++)
+		printf("%d\n", *(s + i));
+
+	free(s);
+
+	printf("\nShowing calloc:\n----------------\n");
+
+	s = (char*)calloc(sz_to_allocate, sizeof(char));
+
+	if (s == NULL)	//checks if calloc is not successful. If not, ptr s will point to nothing a.k.a. NULL
+	{
+		printf("\nCalloc failed.\n");
+		exit(0);
+	}
+
+	for (int i = 0; i < sz_to_allocate; i++)
+		printf("%d\n", s[i]);
+
+	printf("\n\n");
+
+	free(s);
+
+
 }
