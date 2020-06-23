@@ -265,6 +265,7 @@ char* strAllocation(const char* inStr)
 	
 	//strcat_s(s, size_to_allocate, "SOME STRING VALUE") was used to prevent overloads that comes from strcat(s, "SOME STRING VALUE");
 
+	
 	//added tr
 	char addStr[] = "Hello ";
 
@@ -404,4 +405,51 @@ void vid19()
 	free(s);
 
 
+}
+
+
+//Use realloc to change the size of allocated memory
+void vid22()
+{
+
+	printf("\nThis uses realloc(source, new_size) to resized already allocated memory with either malloc or calloc.\n\n");
+	printf("After realloc(source, newsize), you must:\n\tcopy it with strncpy_s(s,sz, old_val, sz)\n\tthen concatenate with strcat(s, newSz, new_val)\n\n");
+	char* s;
+	int sz;
+	int new_sz;
+
+	sz = sizeof("Hello World.\n");
+
+	s = (char*)malloc(sz);	//allocates memory with size of the new value and new value's datatype
+							//malloc does not clear, luckily we used 100% of the allocated memory
+							//to avoid junk from old other data.
+
+	strncpy_s(s, sz, "Hello World.", sz);	//copy string "Hello World." into the allocated memory
+
+	printf("%s\n\n", s);
+
+	new_sz = sz + sizeof(" Goodbye World.");	//obtain new size to concatenate later
+
+	realloc(s, new_sz); //resizing already allocated memory
+
+	strncpy_s(s, sz, "Hello World.", sz);
+
+	strcat_s(s, new_sz, " Goodbye World.");
+
+	printf("%s\n\n", s);
+
+	free(s);
+
+}
+
+//Pointer Arithmetic
+//How to move up in addresses with pointers
+void vid23()
+{
+	int n;
+
+	int* ptr = &n;
+
+	for (int i = 0; i < 20; i++)
+		printf("\n*ptr = %d, ptr = %p", *ptr, ptr++);
 }
