@@ -509,3 +509,50 @@ void vid23()
 		(int)pow(2, 8) - 1, (unsigned long long int)pow(2, 32) - 1);
 	
 }
+
+typedef struct
+{
+	int int1;
+	int int2;
+	long long int ll1;
+	double double1;
+} structObj;
+
+void vid25()
+{
+	structObj* ptr_obj1, * ptr_obj2;
+
+	const int numOfInstances = 4;
+
+	ptr_obj1 = (structObj*)calloc(numOfInstances, sizeof(structObj));
+
+	for (int i = 0; i < numOfInstances; i++)
+	{
+		ptr_obj1[i].int1 = i;
+		ptr_obj1[i].int2 = i * 20;
+		ptr_obj1[i].ll1 = 4294968296 + i;
+		ptr_obj1[i].double1 = 10000000000.0 + i;
+	}
+
+	void* generic_ptr;
+
+	printf("\nSize of the structure:"
+		   "\n\t\tint1 = %d bytes\n"
+		   "\n\t\tint2 = %d bytes\n"
+		   "\n\t\tll1  = %d bytes\n"
+	 	   "\n\t\tdoub = %d bytes\n"
+		   "\n\t\t     + ------------\n"
+		   "\n\t\tTOTAL= %d bytes\n\n",
+		   sizeof(ptr_obj2->int1), sizeof(ptr_obj2->int2), sizeof(ptr_obj2->ll1),
+		   sizeof(ptr_obj2->double1), sizeof(structObj));
+
+	ptr_obj2 = ptr_obj1;
+
+	printf("\nptr_obj2 = ptr_obj1\n\n");
+	//printf("ptr_obj2[0] ")
+
+
+	printf("\nSize of the structure obj1: %d bytes\n", sizeof(ptr_obj1));
+
+	printf("\nSize of the structure obj2: %d bytes\n", sizeof(ptr_obj2));
+}
