@@ -446,10 +446,66 @@ void vid22()
 //How to move up in addresses with pointers
 void vid23()
 {
-	int n;
+	const int sz = 10;
+	int n[sz];
+	char c[sz];
+	
+	void* ptr;
 
-	int* ptr = &n;
+	ptr = &n;
 
-	for (int i = 0; i < 20; i++)
-		printf("\n*ptr = %d, ptr = %p", *ptr, ptr++);
+	/*
+
+		bool			= 1 byte
+		char			= 1 byte
+		ptr				= 4 bytes
+		short int		= 4 bytes
+		int				= 4 bytes
+		long int		= 4 bytes
+		float			= 4 bytes
+		long long int   = 8 bytes
+		double			= 8 bytes
+
+	*/
+
+	printf("\nbool = %d bytes\nchar = %d bytes\nptr = %d bytes\nshort = %d bytes\n"
+		   "int = %d bytes\nlong = %d bytes\nlong long = %d bytes\nfloat = %d bytes\n"
+		   "double = %d bytes\n\n", 
+		   sizeof(bool), sizeof(char), sizeof(ptr), sizeof(short int), sizeof(int), sizeof(long int), 
+		   sizeof(long long int), sizeof(float), sizeof(double));
+
+	for (int i = 0; i < sz; i++)
+		n[i] = 100 - i;
+
+	for (int i = 0; i < sz; i++)
+		c[i] = 64 + i;
+
+	printf("\n\n---- int ----\n");
+	for (int i = 0; i < sz; i++)
+	{
+		
+		printf("\n*ptr = %d, ptr = %p -> size of pointer = %d --> size of var = %d bytes.", *(int*)ptr, (int*)ptr, sizeof(ptr), sizeof(n));
+
+		ptr = (int*)ptr + 1;
+
+	}
+
+	printf("\n\n---- char ----\n");
+
+	ptr = &c;
+
+	for (int i = 0; i < sz; i++)
+	{
+		printf("\n*ptr = %c, ptr = %p -> size of pointer = %d --> size of var = %d bytes.", *(char*)ptr, (char*)ptr, sizeof(ptr), sizeof(c));
+
+		ptr = (char*)ptr + 1;
+
+	}
+
+	printf("\n\nKey: Notice how a pointer variable always = 4 bytes where the variable size itself varies.\n");
+	printf("\nThis is because an address on similar systems will always = 4 bytes.\n\n");
+
+	printf("1 byte = 8 bits -> [0, 2^8 - 1] = [0, %d]\n4 bytes = 32 bits -> [0, 2^32 - 1] = [0, %llu]\n\n", 
+		(int)pow(2, 8) - 1, (unsigned long long int)pow(2, 32) - 1);
+	
 }
