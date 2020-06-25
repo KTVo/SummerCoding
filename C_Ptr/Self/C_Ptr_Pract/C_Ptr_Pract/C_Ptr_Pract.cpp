@@ -43,7 +43,9 @@ int main(int argc, char** argv)
 
 	//vid23();
 
-	vid25();
+	//vid25();
+	
+	his_vid25();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
