@@ -1,0 +1,2 @@
+C:\Users\Kevin Vo\Documents\GitRepo\SummerCoding\C_Ptr\Self\C_Ptr_Pract\C_Ptr_Pract\Debug\C_Ptr_Pract.exe
+C:\Users\Kevin Vo\Documents\GitRepo\SummerCoding\C_Ptr\Self\C_Ptr_Pract\C_Ptr_Pract\Debug\C_Ptr_Pract.pdb

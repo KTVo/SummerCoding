@@ -510,23 +510,33 @@ void vid23()
 	
 }
 
+/* I the structure below is ordered in terms of byte size, the struct would only take
+ **/
 typedef struct
 {
 	int int1;
-	double double1;
 	int int2;
 	long long int ll1;
-	//double double1;
+	double double1;
 	
-} structObj;
+} structObjOrd;
 
-void vid25()
+const int numOfInstances = 1;
+
+void vid25_ordered()
 {
-	structObj* ptr_obj1, * ptr_obj2;
+	printf("\n\n"
+		"****************************************************************\n"
+		"*          Pointer & Address Size of Structure (Ordered)       *\n"
+		"* ------------------------------------------------------------ *\n"
+		"****************************************************************\n\n");
 
-	const int numOfInstances = 4;
+	structObjOrd* ptr_obj1, * ptr_obj2;
 
-	ptr_obj1 = (structObj*)calloc(numOfInstances, sizeof(structObj));
+
+	ptr_obj1 = (structObjOrd*)calloc(numOfInstances, sizeof(structObjOrd));
+
+	int min, max;
 
 	for (int i = 0; i < numOfInstances; i++)
 	{
@@ -534,7 +544,10 @@ void vid25()
 		ptr_obj1[i].int2 = i * 20;
 		ptr_obj1[i].ll1 = 4294968296 + i;
 		ptr_obj1[i].double1 = 10000000000.0 + i;
+
 	}
+	
+	printf("\n\nend-start addr = %p - %p\n\n", &(ptr_obj1[0].double1), &(ptr_obj1[0].int1));
 
 	void* generic_ptr;
 
@@ -546,7 +559,7 @@ void vid25()
 		   "\n\t\t     + ------------\n"
 		   "\n\t\tTOTAL= %d bytes\n\n",
 		   sizeof(ptr_obj2->int1), sizeof(ptr_obj2->int2), sizeof(ptr_obj2->ll1),
-		   sizeof(ptr_obj2->double1), sizeof(structObj));
+		   sizeof(ptr_obj2->double1), sizeof(structObjOrd));
 
 	ptr_obj2 = ptr_obj1;
 
@@ -563,6 +576,76 @@ void vid25()
 		printf("&ptr_obj2[%d]->int1 = %p\n&ptr_obj2[%d]->int2 = %p\n&ptr_obj2[%d]->ll1 = %p\n&ptr_obj2[%d]->double1 = %p\n",
 			i, &ptr_obj2[i].int1, i, &ptr_obj2[i].int2, i, &ptr_obj2[i].ll1, i, &ptr_obj2[i].double1);
 			
+	}
+
+	printf("\nSize of the structure obj1: %d bytes\n", sizeof(ptr_obj1));
+
+	printf("\nSize of the structure obj2: %d bytes\n", sizeof(ptr_obj2));
+}
+
+
+typedef struct
+{
+	int int1;
+	double double1;
+	int int2;
+	long long int ll1;
+
+} structObj_mixed;
+
+void vid25_mixed()
+{
+	printf("\n\n"
+		   "****************************************************************\n"
+		   "*          Pointer & Address Size of Structure (Mixed)         *\n"
+		   "* ------------------------------------------------------------ *\n"
+	       "****************************************************************\n\n");
+
+	structObj_mixed* ptr_obj1, * ptr_obj2;
+
+
+	ptr_obj1 = (structObj_mixed*)calloc(numOfInstances, sizeof(structObj_mixed));
+
+	int min, max;
+
+	for (int i = 0; i < numOfInstances; i++)
+	{
+		ptr_obj1[i].int1 = i;
+		ptr_obj1[i].int2 = i * 20;
+		ptr_obj1[i].ll1 = 4294968296 + i;
+		ptr_obj1[i].double1 = 10000000000.0 + i;
+
+	}
+	//int x = (&(ptr_obj1[0].double1) - &(ptr_obj1[0].int1));
+	printf("\n\nend-start addr = %p - %p\n\n", &(ptr_obj1[0].double1), &(ptr_obj1[0].int1));
+
+	void* generic_ptr;
+
+	printf("\nSize of the structure:"
+		"\n\t\tint1 = %d bytes\n"
+		"\n\t\tdoub = %d bytes\n"
+		"\n\t\tint2 = %d bytes\n"
+		"\n\t\tll1  = %d bytes\n"
+		"\n\t\t     + ------------\n"
+		"\n\t\tTOTAL= %d bytes\n\n",
+		sizeof(ptr_obj2->int1), sizeof(ptr_obj2->int2), sizeof(ptr_obj2->ll1),
+		sizeof(ptr_obj2->double1), sizeof(structObj_mixed));
+
+	ptr_obj2 = ptr_obj1;
+
+	printf("\nptr_obj2 = ptr_obj1\n\n");
+	for (int i = 0; i < numOfInstances; i++)
+	{
+		printf("\n\n--- Values, i = %d ---\n\n", i);
+
+		printf("ptr_obj2[%d]->int1 = %d\nptr_obj2[%d]->double1 = %f\nptr_obj2[%d]->int2 = %d\nptr_obj2[%d]->ll1 = %lld\n",
+			i, ptr_obj2[i].int1, i, ptr_obj2[i].double1, i, ptr_obj2[i].int2, i, ptr_obj2[i].ll1);
+
+		printf("\n\n--- Addresses, i = %d ---\n\n", i);
+
+		printf("&ptr_obj2[%d]->int1 = %p\n&ptr_obj2[%d]->double1 = %p\n&ptr_obj2[%d]->int2 = %p\n&ptr_obj2[%d]->ll1 = %p\n",
+			i, &ptr_obj2[i].int1, i, &ptr_obj2[i].double1, i, &ptr_obj2[i].int2, i, &ptr_obj2[i].ll1);
+
 	}
 
 	printf("\nSize of the structure obj1: %d bytes\n", sizeof(ptr_obj1));
@@ -640,4 +723,74 @@ void his_vid25()
 	}
 
 	
+}
+
+//Debugging with pointers
+// This program displays any arguements weere passted to it
+void vid29(const int argc, char** argv)
+{
+	int i;
+
+	//(1) iterate over array of args
+	for (int i = 0; i < argc; i++)
+		printf("argv[%d] = %s\n", i, argv[i]);
+
+	printf("\n\n");
+
+	//(2) dereferences each string arguement argv with a pointer
+	//starting with **argv
+	for (int i = 0; i < argc; i++)
+	{
+		printf("argv[%d] = %s\n", i, *argv);
+		argv++;	//put a breakpoint here to figure out how argv incr works
+	}
+	
+}
+
+//We're using a struct for this example to keep the pointers contiguous
+//So it's easier to read
+struct
+{
+	int*** ippp;
+	int** ipp;
+	int* ip;
+	int i;
+} s;
+
+//Debugging with multiple references
+void vid30()
+{
+	printf("\nPut a breakpoint here, make sure the configuration next to the execute button is set to 32-bit\n"
+		"for readability\n\n"
+		"Go to Debug->Windows->Memory 1 and search for address &s\n"
+		"Which is the object name of our structure for vid30()\n"
+		"And notice that\n\n");
+
+	s.ippp = &s.ipp;
+	s.ipp = &s.ip;
+	s.ip = &s.i;
+	s.i = 0x55555555;
+
+	printf("(%p) s.ippp = &s.ipp = %p\n"
+		   "(%p) s.ipp  = &s.ip  = %p\n"
+		   "(%p) s.ip   = &s.ip  = %p\n"
+		   "           &s.i            = %p\n\n",
+		   &s.ippp, s.ippp, &s.ipp, s.ipp, 
+		   &s.ip, s.ip, &s.i
+	      );
+
+	//Put a breakpoint here, make sure the configuration next to the execute button is set to 32-bit
+
+	//for readability
+	//Go to Debug->Windows->Memory 1 and search for address &s 
+	//Which is the object name of our structure for vid30()
+	//And notice that 
+	/*
+		s.ippp = &s.ipp;
+		s.ipp = &s.ip;
+		s.ip = &s.i;
+		s.i = 0x55555555;
+	*/
+
+	//as ippp has a value of ipp's address and so on... like layers
 }
