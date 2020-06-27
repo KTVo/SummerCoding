@@ -1,6 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Debug",
+    "\\Debug\\C_Ptr_Pract.tlog",
+    "\\x64",
+    "\\x64\\Debug",
+    "\\x64\\Debug\\C_Ptr_Pract.tlog"
   ],
+  "SelectedNode": "\\C_Ptr_Pract.cpp",
   "PreviewInSolutionExplorer": false
 }
