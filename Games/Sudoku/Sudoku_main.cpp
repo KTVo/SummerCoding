@@ -26,6 +26,7 @@ void showOriginalTable(const short [][dimen]);
 void clearTable(short [][dimen]);
 void randSetupTable(short [][dimen], bool [][dimen]);
 bool checkUnique(const short [][dimen], const int, const int, const short);
+void checkInputRange(const char, int&, const int, const int);
 void input(short [][dimen], const bool [][dimen], int, int, int);
 bool checkWin(const short [][dimen], bool []);
 void gamePlay(short [][dimen], const short [][dimen], bool [], bool [][dimen]);
@@ -127,6 +128,29 @@ bool checkUnique(const short gT[][dimen], const int x, const int y,
     
 }
 
+void checkInputRange(const char id, int &val, const int lwrBnd, const int upprBnd)
+{
+
+    if(id == 'x')
+    {
+        while(val < lwrBnd || val > upprBnd)
+        {
+            cout<<"\nX must be ["<<lwrBnd<<","<<upprBnd<<"]. Try again\n";
+            cout<<"\nEnter X: ";
+            cin>>val;
+        }
+    }
+    else if(id == 'y')
+    {
+        while(val < lwrBnd || val > upprBnd)
+        {
+            cout<<"\nY must be ["<<lwrBnd<<","<<upprBnd<<"]. Try again\n";
+            cout<<"\nEnter Y: ";
+            cin>>val;
+        }
+    }
+}
+
 void input(short gT[][dimen], bool preassignedCells[][dimen],
     int x, int y, int inVal)
 {
@@ -135,14 +159,19 @@ void input(short gT[][dimen], bool preassignedCells[][dimen],
         cout<<"\nCannot edit. Cell was assigned by game. Try again\n";
         cout<<"\nEnter x: ";
         cin>>x;
+        
+        checkInputRange('x', x, 0, dimen-1);
+        
         cout<<"\nEnter y: ";
         cin>>y;
+        
+        checkInputRange('y', y, 0, dimen-1);
     }
     
     while(checkUnique(gT, x, y, inVal) == false)
     {
         cout<<"\nThis value already exist in row "<<x<<" column "<<y<<endl;
-        cout<<"Please try again.\nEnter Value: ";
+        cout<<"Please try again.\n";
         
         do{
             cout<<endl<<"Enter value: ";
@@ -200,8 +229,12 @@ void gamePlay(short gT[][dimen], const short orgT[][dimen], bool filledRows[],
         cout<<endl<<"\nEnter X: ";
         cin>>x;
         
+        checkInputRange('x', x, 0, dimen-1);
+        
         cout<<endl<<"\nEnter Y: ";
         cin>>y;
+        
+        checkInputRange('y', y, 0, dimen-1);
         
         do{
             cout<<endl<<"Enter value: ";
