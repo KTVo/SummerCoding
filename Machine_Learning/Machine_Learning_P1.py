@@ -68,7 +68,7 @@ import numpy as np
 def sigmoid(z):
     return 1/(1 + np.exp(-z)) # Sigmoid Normalization function = PHI(z) = 1/(1+e^-z)
 
-def signmoid_derivative(x):
+def sigmoid_derivative(x):
     return x * (1-x)
 
 #inputs for training our machine
@@ -103,7 +103,7 @@ for iteration in range(1):
     error = training_outputs - outputs
 
     #calculates for adjustments (midigates the error)
-    adjustments = error * signmoid_derivative(outputs)
+    adjustments = error * sigmoid_derivative(outputs)
 
     synaptic_weights += np.dot(input_layer.T, adjustments)
 
