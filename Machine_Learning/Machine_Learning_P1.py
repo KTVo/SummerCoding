@@ -16,47 +16,64 @@ Ex 4 |   0   |   1   |   1   |        0
 
 Do the following:
 
-Ex 5 |   1   |   0   |   0   |        1 
+Ex 5 |   1   |   0   |   0   |        1
 
 Explanation of Ex5:
 
 Upon looking at Examples 1 to 4 I realized that the output sole depends on the first collumn of any of the examples.
 When looking at "Ex 1 |   0   |   0   |   1   |        0" and  "Ex 4 |   0   |   1   |   1   |        0" you'll notice
-that the middle input has no influence on the output. 
+that the middle input has no influence on the output.
 Moving on to "Ex 2 |   1   |   1   |   1   |        1" and "Ex 3 |   1   |   0   |   1   |        1", notice how the outputs
-are both now 1 when the first input is "1". 
+are both now 1 when the first input is "1".
 Within this example the third input has always been "1" so it is known if results are dependent on it when combined with
-the first input. For example, both gates must be on for an output of one (like an AND gate).
+the first input. For example, both gates must be on for an output of one (like an AND gate). However, I took a hunch and
+predicted that the output was only depdendent to the first input.
 
 A neuronetwork consists of:
+1_ Inputs
+2_ Synapse - Are the connection between the input and the NEURON (these are given weights)
+3_ NEURON  - Calculates the output
+4_ Output
+
+The NEURON calcuates the output by (# of inputs) SUMM (i = 1) [weight.i * input.i]
 
 Inputs | Synapses |          Neuron            |   Output
 _______________________________________________________________
            w.1
-x.1 ------------->              ------------->      
+x.1 ------------->              ------------->
            w.2
 x.2 ------------->    NEURON    ------------->        y
            w.3          ^
-x.3 ------------->      |       ------------->   
+x.3 ------------->      |       ------------->
                         |
-            Use math to figure out what's    
-               happening in the NEURON 
+            Use math to figure out what's
+               happening in the NEURON
 
                     Let n = # of inputs
 
                     n SUMM i = 1 (x.i*w.i) = x.1*w.1 + x.2*w.2 + x.3*w.3
+                        Here the weight of each input is multipled to each other
+                        then summed to the rest of the input * its sums
+
+                        This gives an average were certain values have more meaning.
+                            For this case, when an input is weighted more.
+                            The weight could mean more occurences with a particular
+                            value
 
                       where PHI = normalization of the function
 
-                   
+                            We but the weighted average above into a Normalization Function
+                            so that we could get a value between [-1, 1].
+
+
                     Sigmoid Normalization Function:
                         Tries to NORMALIZATIZE the data from the input, so that it can be represented in
                         an easier format (through averaging, kind of like normal-bell curve).
 
                         Sigmoid Normalization ensure you have an intersection when x = 0 you'd have a 0.5 amplitude
                         and the graph always caps at -1 and 1.
-                    
-                        PHI(z) = 1/(1+e^-z) -------> PHI(z = { n SUMM i = 1 (x.i*w.i) }) 
+
+                        PHI(z) = 1/(1+e^-z) -------> PHI(z = { n SUMM i = 1 (x.i*w.i) })
                                                         = 1/(1+e^-{n SUM i = 1 [x.i*w.i]})
 """
 
@@ -65,8 +82,8 @@ x.3 ------------->      |       ------------->
 import numpy as np
 
 #our normalization function
-def sigmoid(z):
-    return 1/(1 + np.exp(-z)) # Sigmoid Normalization function = PHI(z) = 1/(1+e^-z)
+def sigmoid(x):
+    return 1/(1 + np.exp(-x)) # Sigmoid Normalization function = PHI(z) = 1/(1+e^-z)
 
 def sigmoid_derivative(x):
     return x * (1-x)
@@ -96,7 +113,7 @@ print(synaptic_weights)
 #our for loop starting at 1
 for iteration in range(1):
     input_layer = training_inputs
-    
+
     outputs = sigmoid(np.dot(input_layer, synaptic_weights))
 
     #calculates errors here

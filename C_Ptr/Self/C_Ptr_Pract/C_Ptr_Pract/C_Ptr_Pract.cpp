@@ -18,7 +18,8 @@
 #include "malloc.h"		//For memory allocation (<datatype>*) malloc(<size_int>);
 #include "string.h"		//For string concatination with with strcat(<string_var>, "<a_string>");
 #include "math.h"		//For the pow(base, exp) function
-
+ #include <cstring>
+\
 #include "ptr_code.h"   //Functions for the follow-along examples
 int main(int argc, char** argv)
 {

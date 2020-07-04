@@ -7,6 +7,12 @@
 
 #pragma once
 
+#include "stdlib.h"		//For exit(0)
+#include "stdio.h"		//For input/output
+#include "malloc.h"		//For memory allocation (<datatype>*) malloc(<size_int>);
+#include "string.h"		//For string concatination with with strcat(<string_var>, "<a_string>");
+#include "math.h"		//For the pow(base, exp) function
+
 void vid6()
 {
 	int num1,
