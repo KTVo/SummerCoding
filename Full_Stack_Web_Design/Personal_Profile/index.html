@@ -19,8 +19,50 @@
   <!-- <meta http-equiv="refresh" content="60"> -->
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- links the .css file with designs for all pages of website
+        make sure is NOT href="/css/styles.css"
+		
+		since we have not hosted our set yet, we don't have a root folder 
+		"/..." -->
+		
+  <link rel="stylesheet" href="css/styles.css">
 
   <title>Kevin Vo's Profile</title>
+  
+  <!-- background-color: white;
+		border-style: solid;
+		height: 2px;
+		width: 100%; -->
+		
+  <!-- this is an internal CSS, meaning it'll only work for this one page 
+  
+	   code in external CSS to decorate entire website 
+	     Todo this I  will put my code under <style>...</style>
+		 into css/styles.css and link it into <head> -->
+	   
+  <!--
+  
+  <style>
+    body
+	{
+		background-color: teal;
+	}
+	
+	hr
+	{
+		
+		border-style: none;
+		border-top: 15px dotted grey;
+		height: 0px;
+		border-width: 5px;
+		width: 3%;
+		
+	}
+  </style>
+  
+  -->
+  
 
 </head>
 
@@ -30,8 +72,11 @@
 
 	NOTE: that unlike HTML, CSS needs semicolons -->
 
-<body style="background-color:teal;">
-
+<body>
+<center>
+  <table style="background-color: #32e0c4; width: 500px; height = 500px;">
+    <tr>
+	  <td>
   <h1>
     <center>Profile<center>
   </h1>
@@ -49,19 +94,15 @@
   </table>
 </center>
   <br>
-  <hr color="white">
+  <hr>
   <br>
   <table>
   <tr>
   <td>
   <table>
     <tr>
-
 	  <td>
-		<picture>
-		  <source media="(min-width:650px)" srcset="profile_pic.jpg">
-		  <img src="profile_pic.jpg" width="350" height="auto" border="4" alt="Profile Pic">
-		</picture>
+		<img src="pictures/profile_pic.jpg" width="350" height="auto" border="4" alt="Profile Pic">
 	  </td>
 	</tr>
   </table>
@@ -111,7 +152,7 @@
   </td>
   </tr>
   </table>
-  <hr color="white">
+  <hr>
 
   <h2>Bio</h2>
   <p>
@@ -125,7 +166,7 @@
     for it to be refreshing.
   </p>
 
-  <hr color="white">
+  <hr>
 
   <h2>Languages Dealt With<h2>
 
@@ -151,7 +192,7 @@
 
 
 
-      <hr color="white">
+      <hr>
       <h2>Courses Taken</h2>
 
       <h3><u>CSUSB:</u></h3>
@@ -214,10 +255,10 @@
 
 
 
-      <hr color="white">
+      <hr>
 
       <h2>Hobby</h2>
-      <img src="bonsai_hobby.jpg" width="600" height="auto" alt="Picture of bonsai">
+      <img src="pictures/bonsai_hobby.jpg" width="600" height="auto" alt="Picture of bonsai">
       <p>
         Admist COVID 19 I begun picking on the hobby of indoor bonsai keeping. It initially started to brighten up the mood in my room
         but shortly grew on when as I saw potential once researching a couple of suitable trees. Currently, in my collect I have two
@@ -229,7 +270,7 @@
         of connected trees through developed aerial roots that can propagate acres wide.
       </p>
 
-      <hr color="white">
+      <hr>
 
       <h2>Experience</h2>
 
@@ -282,8 +323,10 @@
         </pre>
 
 
-
-
+      </td>
+    </tr>
+  </table>
+  </center>
 </body>
 
 </html>
