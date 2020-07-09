@@ -32,24 +32,31 @@
       <tr>
         <td>
 
-          <form class="" action="mailto:foolycooly288622@yahoo.com" method="post">
+          <!--
+              action="mailto:foolycooly288622@yahoo.com" sends the message to the FLCL Email
+
+              method="post"
+
+              enctype="text/plain" means its encoding the form into plain text
+                Meaning no funny percentage sign under message -->
+          <form action="mailto:foolycooly288622@yahoo.com" method="post" enctype="text/plain">
             <tr>
               <td>
                 <label><strong>Name: </strong></label>
-                <input type="text">
+                <input type="text" name="yourName" value="">
               </td>
             </tr>
             <tr>
               <td>
                 <label><strong>Email: </strong></tabel>
-                <input type="email">
+                <input type="email" name="yourEmail" value="">
               </td>
             </tr>
 
             <tr>
               <td>
                 <label><strong>Message: </strong></label>
-                <textarea name="name" rows="20" cols="100"></textarea>
+                <textarea name="yourMessage" rows="20" cols="100"></textarea>
               </td>
             </tr>
             <tr>

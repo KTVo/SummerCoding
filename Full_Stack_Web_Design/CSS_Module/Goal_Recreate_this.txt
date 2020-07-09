@@ -1,0 +1,3 @@
+By the end of this module, recreate this website with CSUSB
+
+http://seanhalpin.io/

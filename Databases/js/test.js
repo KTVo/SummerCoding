@@ -1,2 +1,1 @@
-
-  console.log('I am four.');
+console.log('Hello\n');
