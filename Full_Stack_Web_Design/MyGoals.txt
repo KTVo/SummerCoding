@@ -1,0 +1,46 @@
+Questions for this assignment
+Why do I want to learn this skill?
+
+What does it mean to you? What are your motivations? Will you prove something to yourself or people around you? Will you get a raise because you’re better at your job or will you get a better job?
+  - This means a lot to me if once I have the knowledge provided in this course. I am not exactly focusing on the syntaxes but on looking forward to what tools/capabilities
+    are available in web development. Since there are so many, the primary reason that I signed up for this course is that it provides the fundamental in an orderly manner.
+    Moreover, this will definitely improve myself and I'd more acquainted with a larger involving project. I want to acquire a skill in web development because it's a create approach into being a full stack developer. I will be able to code in the back-end with
+    Javascript, MySQL, and eventually PHP along with the client-end with mostly CSS. It is also very involving as it requires integration multiple languages
+    and tools for most contemporary websites as I am also curious have data transfers using JSON and utilizing memory within the browser through other means.
+    It is also a good exercise to me with databases. What's also spectacular about web development is that you can easily share your work with a simple URL.
+    Lastly, I am uncertain if it will provide me a raise in the future, but as of now I am an unemployed university student and I am hoping this would be one
+    of the definite reasons to get my foot through the door.
+
+
+What will I achieve if I learn this skill?
+
+Which doors will this skill open for you? Will you be able to earn more, have more flexibility in your work hours, work remotely and travel more?
+  - Hopefully, more doors than I will need. I had a classmate who had claimed that he sent out 70+ different applications and failed many interviews
+    but had recently succeeded in obtaining a well-paying job. As for myself, I am hopping the skills I will acquire form this course will expand my
+    portfolio and overall have me be more comfortable and efficient with software development as I one day hoped to be full stack.
+
+    For the second question, I have absolutely no idea at this point. Fingers cross that I will get paid more taking this course than I wouldn't and
+    will also have the previllige to have some traveling done for business (slightly pleasure) purposes.
+
+
+How will this skill change my life and my career?
+
+Would you get a raise at your current job or more respect from your boss once you’ve learnt this skill? Or will you be at Facebook, Amazon or Google instead? How would your life change?
+
+
+
+How will learning this skill impact the lives of my family, friends and coworkers?
+
+What will you be able to do for your family or friends once you’ve learnt this skill? How will it change the way they think of you? Will your coworkers respect you more?
+
+
+
+How will I feel if I never accomplish this?
+
+Would you feel disappointed? Would you feel like you’ve missed out?
+
+
+
+What would my life look like if I manage to accomplish this?
+
+Visualise it. What would life look like from the moment you wake up to the time you go to sleep? Will you be living by the sea? Would you kiss your beautiful wife/husband when you wake up?
