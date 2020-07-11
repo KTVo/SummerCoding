@@ -1,6 +1,6 @@
 #include "Player.h"
 
-
+#include <iostream>
 //Constructor
 Player::Player()
 {
@@ -11,7 +11,11 @@ Player::Player()
 //Value a player has in-hand
 void Player::setHandVal(const int valNewCard)
 {
+    std::cout<<"\n00000 handVal + valNewCard = "<<handVal<<" + "<<valNewCard<<std::endl;
+    
     handVal += valNewCard;
+    
+    std::cout<<"\n0000 new handVal = "<<handVal<<std::endl;
 }
 
 //Calculates number of chips player has left

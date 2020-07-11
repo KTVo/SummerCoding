@@ -42,7 +42,7 @@ private:
 public:  
     House(int, int);    //Constructor
     ~House();    //Destructor
-    short int getACardVal(const char, const short int);
+    int getACardVal(const char, const short int);
     bool checksVictor();
     int getNumPlayerIngame();
     void setUsedCards(const int, const int);
