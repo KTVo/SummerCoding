@@ -35,9 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/HashTable.o \
-	${OBJECTDIR}/HashTable_main.o \
-	${OBJECTDIR}/SinglyLinkedList.o
+	${OBJECTDIR}/HashTable_main.o
 
 
 # C Compiler Flags
@@ -64,20 +62,10 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/hashtable.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/hashtable ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/HashTable.o: HashTable.cpp
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HashTable.o HashTable.cpp
-
 ${OBJECTDIR}/HashTable_main.o: HashTable_main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HashTable_main.o HashTable_main.cpp
-
-${OBJECTDIR}/SinglyLinkedList.o: SinglyLinkedList.cpp
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SinglyLinkedList.o SinglyLinkedList.cpp
 
 # Subprojects
 .build-subprojects:
