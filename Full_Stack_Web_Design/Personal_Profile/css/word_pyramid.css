@@ -1,0 +1,47 @@
+/************* Tag Selectors (lowest priority) *************
+  When wanting to have all tags of a type like <h1> to have a certain property
+  HOWEVER, can be overwritten by a Class or ID Selectors
+
+*************/
+h1
+{
+  front-size:600px;
+  color: white;
+  text-align: center;
+
+}
+
+body
+{
+  background-color:#607d8b;
+}
+
+/************* Class Selectors (2nd highest priority) *************
+  Can have many of in one tag
+
+  class="class1 class2"
+
+*************/
+
+.standard_text
+{
+	font-size:300 px;
+}
+
+.quotes:hover
+{
+	font-size:1000 px;
+	color: yellow;
+  background-color: black;
+}
+
+/************* ID Selectors (TOP priority) *************
+  A tag can only have one of these
+  ID="ID_name"
+*************/
+
+#heading
+{
+  color: black;
+  font-size: 100px;
+}
