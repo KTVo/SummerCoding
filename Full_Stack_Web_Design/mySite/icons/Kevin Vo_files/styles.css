@@ -1,0 +1,51 @@
+body
+{
+	background-color: #18344e;
+	margin: 200px;
+}
+
+.Box
+{
+	border: solid;
+	border-color: black;
+	/* the border thickness of the box */
+	border-width: 1px 1px 1px 1px;
+	background-color: #01a9b4;
+	/* Declares the height and width side of the box */
+	height: 100%;
+	width: 80%;
+	text-align: center; /* Keeps the text within the box at the center */
+  margin-left: auto;
+	margin-right: auto;
+	margin-bottom: auto;
+	margin-top: 10%;	/* ensures that there is indentation between the box and of
+											browser */
+	padding: 20px; /* The spacing between the inner box and its borders */
+}
+
+.topBox
+{
+	height: 200px;
+	width: 200px;
+	background-color: red;
+}
+
+.midBox
+{
+	height: 200px;
+	width: 200px;
+	background-color: blue;
+}
+
+.botBox
+{
+	height: 200px;
+	width: 200px;
+	background-color: green;
+}
+
+h1
+{
+	margin-top: 30%;	/* the height of h1 headers */
+	font-size: 150px;
+}

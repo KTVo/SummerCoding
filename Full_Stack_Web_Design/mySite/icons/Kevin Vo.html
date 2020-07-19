@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)http://127.0.0.1:3000/Full_Stack_Web_Design/mySite/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="Kevin Vo&#39;s Profile">
+
+		<link rel="stylesheet" type="text/css" href="./Kevin Vo_files/styles.css">
+		<link rel="icon" type="image/ico" href="http://127.0.0.1:3000/Full_Stack_Web_Design/mySite/icons/favicon_bordered.ico">
+		<title>Kevin Vo</title>
+	</head>
+	<body>
+		<div class="Box">
+			<h1>I'm Kevin.</h1>
+			<p>a programmer.</p>
+		</div>
+
+		<div class="topBox" style="
+    border-top-width: 10px;
+    padding-top: 20px;
+    border-right-width: 10px;
+">
+		</div>
+		<div class="midBox" style="
+    border: solid; margin: center; margin-top: 0px;
+    margin-left: 210px;
+    border-left-width: 20px;
+    border-top-width: 20px;
+">
+		</div>
+		<div class="botBox" style="
+    margin-left: 430px;
+">
+		</div>
+	<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function() {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					head.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					head.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function(msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			console.log('Live reload enabled.');
+		})();
+	}
+	// ]]>
+</script>
+
+	<footer>
+		</footer>
+
+</body></html>
