@@ -23,6 +23,7 @@ body
 	padding: 20px; /* The spacing between the inner box and its borders */
 }
 
+/*
 .topBox
 {
 	height: 200px;
@@ -39,9 +40,9 @@ body
 	width: 200px;
 	border: 20px;
 	border-style: solid;
-	margin-left: 250px; /*margin-left = width.1 + border.1 + boder.2
-	200+10+20+20*/
-	background-color: blue;
+	margin-left: 260px; //margin-left = width + L.border + L.padding + R.border + R.padding
+	                                     //200  +   10   +    20   +  20    +   10
+	background-color: gold;
 }
 
 .botBox
@@ -50,12 +51,46 @@ body
 	width: 200px;
 	border: 10px;
 	border-style: solid;
-	margin-left: 500px;
+	margin-left: 500px; //margin-left =  width.1 + L.border.1 + L.padding.1 + R.border.1 + R.padding.1
+	                                 //   + width.2 + L.border.2 + L.padding.2 + R.border.2 + R.padding.2
+	                           //          200      +   10       +    20       +  20        +   10
+															//			 + 200      +   20       +    0         +  20       +   0
 	background-color: green;
+}
+*/
+
+.topBox
+{
+	height: 200px;
+	width: 200px;
+	background-color: red;
+}
+
+.midBox
+{
+	height: 200px;
+	width: 200px;
+	background-color: blue;
 }
 
 h1
 {
 	margin-top: 30%;	/* the height of h1 headers */
 	font-size: 150px;
+}
+
+.underline
+{
+	text-decoration: underline;
+}
+
+p
+{
+	display: inline-block; //combines both inline and block
+	width: 100px;
+}
+
+.second-p
+{
+	display: none;
 }

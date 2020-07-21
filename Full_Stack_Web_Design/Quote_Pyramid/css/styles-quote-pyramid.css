@@ -1,0 +1,17 @@
+body
+{
+  background-color: #04B9A9;
+}
+p
+{
+  display: inline;
+  font-size: 30px;
+  height: 50px;
+
+}
+
+span:hover
+{
+  display: inline;
+  font-size: 40px;
+}
