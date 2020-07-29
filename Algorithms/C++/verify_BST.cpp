@@ -1,5 +1,5 @@
 /* 
- * File:   Validate_BST_main.cpp
+ * File:   verify_BST_main.cpp
  * Author: Kevin Vo
  *
  * Created on July 28, 2020, 11:32 AM
@@ -77,6 +77,37 @@ Node* createTree()
     
 }
 
+Node *createTree2()
+{   
+    Node *A = new Node;
+    Node *B = new Node;
+    Node *C = new Node;
+    Node *D = new Node;
+    
+    A->prev = NULL;
+    A->left = B;
+    A->right = C;
+    
+    B->prev = A;
+    C->prev = A;
+    D->prev = C;
+    
+    B->left = NULL;
+    B->right = NULL;
+    C->left = D;
+    C->right = NULL;
+    D->left = NULL;
+    D->right = NULL;
+    
+    A->val = 5;
+    B->val = 4;
+    C->val = 7;
+    D->val = 2;
+    
+    return A;
+}
+
+
 //Tests if a tree is a Binary Search Tree (BST)
 void testBST(Node *root)
 {
@@ -86,8 +117,39 @@ void testBST(Node *root)
     
     cout<<root->val<<" ";
     
-    if(root->prev != NULL)  //Checks checks the children nodes
+    if(root->prev != NULL)
     {
+        if(root == root->prev->left)
+        {
+            Node *temp = root;
+
+            while(temp->prev != NULL)
+            {
+                if(temp->val > temp->prev->val)
+                {
+                    cout<<"\nIs NOT a Binary Search Tree. A LEFT node is greater than one of its parents.\n";
+                    return;
+                }
+                temp = temp->prev;
+            }
+        }
+        
+        if(root == root->prev->right)
+        {
+            Node *temp = root;
+
+            while(temp->prev != NULL)
+            {
+                if(temp->val < temp->prev->val)
+                {
+                    cout<<"\nIs NOT a Binary Search Tree. A Right node is lesser than one of its parents.\n";
+                    return;
+                }
+                temp = temp->prev;
+            }
+        }
+        
+        /*
         //Checks if the current root node's LEFT node on same level is larger
         if(root->prev->left != NULL)
             if(root->val < root->prev->left->val)
@@ -106,20 +168,31 @@ void testBST(Node *root)
         
         //Checks if the node to the LEFT of the current root node is larger.
         if(root->left != NULL)
+        {
             if(root->val < root->left->val)
             {
                 cout<<"\nIs NOT a Binary Search Tree. Its LEFT-CHILD is larger.\n";
                 return;
             }
+        }
         
         //Checks if the node to the Right of the current root node is smaller.
         if(root->right != NULL)
+        {
             if(root->val > root->right->val)
             {
                 cout<<"\nIs NOT a Binary Search Tree. Its RIGHT-CHILD is larger.\n";
                 return;
             }
-        
+            
+            if(root->right->val < root->right->prev->val)
+            {
+                cout<<"\nIs NOT a Binary Search Tree. Its RIGHT-CHILD is smaller.\n";
+                return;
+            }
+        }
+        */
+         
     }
     else    
     {
