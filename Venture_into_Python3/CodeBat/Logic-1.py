@@ -14,9 +14,17 @@ cigar_party(30, False) → False
 cigar_party(50, False) → True
 cigar_party(70, True) → True
 
+inclusive means <=
 """
 
-
+def cigar_party(n_cigar, isWeekend):
+    if(not isWeekend and (n_cigar >= 40 and n_cigar <= 60)):
+        return True
+    elif(isWeekend and n_cigar >= 40):
+        return True
+    else:
+        return False
+        
 """
 
 Logic-1 > date_fashion
@@ -36,6 +44,14 @@ date_fashion(5, 5) → 1
 
 """
 
+def date_fashion(you, date):
+    if(you <= 2 or date <= 2):
+        return 0
+    elif(you >= 8 or date >= 8):
+        return 2
+    else:
+        return 1
+
 """
 Logic-1 > squirrel_play
 
@@ -51,6 +67,15 @@ squirrel_play(95, False) → False
 squirrel_play(95, True) → True
 Go...S
 """
+
+def squirrel_play(temp, isSummer):
+    if(isSummer and (temp >= 60 and temp <= 100)):
+        return True
+    elif(not isSummer and (temp >= 60 and temp <= 90)):
+        return True
+    else:
+        return False
+        
 
 """
 Logic-1 > caught_speeding
@@ -68,6 +93,19 @@ caught_speeding(65, False) → 1
 caught_speeding(65, True) → 0
 """
 
+def caught_speeding(speed, isBirthday):
+  adj_speed = speed
+  
+  if(isBirthday):
+    adj_speed -= 5
+        
+  if(adj_speed <= 60):
+    return 0
+  elif(adj_speed >= 61 and adj_speed <= 80):
+    return 1
+  else:
+        return 2
+        
 """
 Logic-1 > sorta_sum
 
@@ -79,6 +117,14 @@ sorta_sum(3, 4) → 7
 sorta_sum(9, 4) → 20
 sorta_sum(10, 11) → 21
 """
+
+def sorta_sum(a, b):
+  sum = a + b
+  if(sum >= 10 and sum <= 19):
+    return 20
+  else:
+    return sum
+
 
 """
 Logic-1 > alarm_clock
@@ -96,6 +142,19 @@ alarm_clock(5, False) → '7:00'
 alarm_clock(0, False) → '10:00'
 """
 
+def alarm_clock(day, vacation):
+  if(day == 0 or day == 6):
+    if(vacation):
+      return "off"
+    else:
+      return "10:00"
+  else:
+    if(vacation):
+      return "10:00"
+    else:
+      return "7:00"
+
+
 """
 Logic-1 > love6
 
@@ -109,6 +168,11 @@ love6(4, 5) → False
 love6(1, 5) → True
 """
 
+def love6(a, b):
+    if(a + b == 6 or abs(a-b) == 6 or a == 6 or b == 6):
+        return True
+    else: 
+        return False
 """
 Logic-1 > in1to10
 
@@ -122,6 +186,16 @@ in1to10(11, False) → False
 in1to10(11, True) → True
 """
 
+def in1to10(n, outside_mode):
+  if(outside_mode):
+    if(n <= 1 or n >= 10):
+      return True
+  else:
+    if(n >= 1 and n <= 10):
+      return True
+      
+  return False
+  
 """
 Logic-1 > near_ten
 
@@ -134,3 +208,11 @@ near_ten(12) → True
 near_ten(17) → False
 near_ten(19) → True
 """
+
+def near_ten(num):
+  modded = num%10
+  
+  if(modded <= 2 and modded >= -2 or modded == 8 or modded == 9):
+    return True
+    
+  return False
