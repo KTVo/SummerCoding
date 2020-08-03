@@ -247,7 +247,27 @@ def missing_char(str, num):
           newStr += str[i]
     return newStr
 
-
+def missing_char(str, num):
+    length = len(str)
+    temp = ""
+    if(num >= 0 and num < length):
+      if(num > 0 and num < length):
+          temp = str[0 : num]
+          temp += str[num + 1 : length]
+            
+          return temp
+            
+      elif(num == length):
+        return str[0 : length]
+      else:
+        return str[1 : length]
+        
+def missing_char(str, num):
+    temp = str[:num]
+    temp += str[num+1 : len(str)]
+    
+    return front
+    
 """
 
 Warmup-1 > front_back
@@ -261,6 +281,71 @@ front_back('ab') → 'ba'
 
 """
 
+#my solution
+def front_back(str):
+  last = len(str)-1
+  if(last > 0):
+    temp = ""
+    temp += str[last]
+    
+    for i in range(1, last):
+      temp += str[i]
+      
+    temp += str[0]
+    
+    return temp
+    
+  return str
+
+
+#Theirs, being new to python, I had no idea you could intercept strings with str[1st_term : last_term]
+def front_back(str):
+  last = len(str)-1
+  if(last <= 0 ):
+    return str
+  temp = str[last]
+  temp += str[ 1 : last] 
+  temp += str[0]
+  
+  return temp
+  
+  
+  
+ """
+ Warmup-1 > front3
+
+Given a string, we'll say that the front is the first 3 chars of the string. 
+If the string length is less than 3, the front is whatever is there. 
+
+Return a new string which is 3 copies of the front.
+
+
+front3('Java') → 'JavJavJav'
+front3('Chocolate') → 'ChoChoCho'
+front3('abc') → 'abcabcabc'
+
+
+"""
+def front3(str):
+  end = 3
+  length = len(str)
+  if(length < end):
+    return str + str + str
+    
+  pre = str[0:end]
+  
+  if(pre[0] == pre[1] and pre[1] != pre[2]):
+    return pre[0] + pre[2]
+  else:
+    return pre + pre + pre
+    
+    
+def front3(str):
+  front_end = 3
+  if len(str) < front_end:
+    front_end = len(str)        #re-adjust size if less than 3
+  front = str[:front_end]       #splice string to readjusted/unadjusted size
+  return front + front + front
 
 
 
