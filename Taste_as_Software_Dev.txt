@@ -57,7 +57,7 @@
 	#passive learning - reading a book, taking in information without doing an exercise.
 
 	#active learning - hands-on learning. Applying what I've learned like doing a project.
-		^better for problem-solving
+#		^better for problem-solving
 
 	#When starting out have 2:1 of passive:active
 
@@ -85,7 +85,7 @@
 #High stress level or not sleeping can lower my IQ by 10 pts
 
 
-How to have a Productive Day:
+#How to have a Productive Day:
 -----------------------------
 #1
 #Do 25 minutes of work then 5 min break repeatedly
@@ -102,3 +102,27 @@ How to have a Productive Day:
 
 #5
 #Prioritize everything I do
+
+#How to Study:
+--------------
+
+#1
+#Get specific on what I am trying to learn
+#	Question myself, do I truly know it or it just makes sense
+#	when someone else explains it.
+	
+
+#2
+#Learn once you are able to recreate something without even a 
+#	hint.
+
+
+#3
+#Find what I am stuck on by attempting it then focus/target it
+#	by going back 1 step
+	
+#4
+#Once I've learned anything go back to it once a week
+#	to avoid relearning it
+	
+#	*** In the end, be able to redo the problem from scratch.
