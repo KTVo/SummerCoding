@@ -1,0 +1,16 @@
+1) What is most efficient way of doing "Twelve Days of Christmas" song
+2) What is a Heap
+3) What is an efficient way of determing BST
+4) How to convert recursion to iteration
+5) Breaking down recursion step-by-step
+6) How to code Merge Sort
+7) How to code Python in OOP
+8) How to solve the Making Bricks problem in CodeBat.com
+9) Python machine learning
+10)
+
+
+
+Goals:
+------
+1) Do 3 

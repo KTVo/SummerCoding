@@ -1,0 +1,104 @@
+#Things you'll learn after going in:
+------------------------------------
+#1
+#Don't ever think my way is the only way. In programming, it's all about trade-offs
+#Just stick with the approach I know best while learning from others.
+
+#2
+#There's too much to learn. You'll always learn as you go. Tech changes quick.
+
+#3
+#Some companies don't always know how to develop software ineffeciently and struggle to
+#meet their own deadlines
+
+#4
+#Sine companies don't care if their code is outdated, less-stable, or inefficient. They
+#just want you to produce software quickly. So they'll work around poorly written
+#code instead of redoing it.
+
+#5
+#Building applications is HARD! Just because you can code DOES NOT mean you can
+#provide a good user experience
+
+
+
+
+#Avoid these horrible study habits:
+-----------------------------------
+#1
+#Separate studying from playing. No movies/gaming while studying.
+#Have free-time separate from study-time
+#Not doing still will motivate mean
+
+#2
+#ex: repeat 25 mins of studying -> 5 minutes break 
+# OR
+#45 mins of studying -> 15 minutes off
+
+#3
+#When working, NOT distractions!
+#Check phone or do whatever during break
+
+#4
+#Do not spend every waking moment studying
+#You'll need a break. Sometimes the whole day.
+#Your brain is like a muscle. It needs a break.
+
+
+
+#Learning strategies for Programming:
+-------------------------------------
+#1
+#Need to be systematic with learning. Don't just hope that I will learn well without a system.
+
+#2
+#Know my sweet spot of active and passive learning
+
+	#passive learning - reading a book, taking in information without doing an exercise.
+
+	#active learning - hands-on learning. Applying what I've learned like doing a project.
+		^better for problem-solving
+
+	#When starting out have 2:1 of passive:active
+
+	#Once I am better have 1:1 of passive:active
+
+#3
+#Apply spacing to my learning.
+#Avoid cramming every in one day. Spreading my learning 1 hour per day.
+
+#4
+#After learning. Write a blog-post on what I've learned to summarized my learning.
+
+#5
+#Keep track of all my questions. Write it in a .txt or something to find the answers later.
+
+#6
+#Know when to rest and recover from learning.
+#Take time off to sleep
+#Take time off to think about other things
+#Hang out
+#Chores
+
+#7
+#Manage my stress level.
+#High stress level or not sleeping can lower my IQ by 10 pts
+
+
+How to have a Productive Day:
+-----------------------------
+#1
+#Do 25 minutes of work then 5 min break repeatedly
+#After every 4 intervals take a LONG BREAK
+
+#2
+#Plan Day out before it occurs
+
+#3
+#Stay focus, remove all distractions
+
+#4
+#Just do the freakin' work!
+
+#5
+#Prioritize everything I do
