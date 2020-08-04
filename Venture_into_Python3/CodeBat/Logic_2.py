@@ -13,6 +13,22 @@ make_bricks(3, 2, 10) → True
 
 """
 
+def make_bricks(small, big, goal):
+  sz_big = 5  #the given size of the big bricks
+  sz_small = 1 #the given size of small bricks
+  
+  #considers if there are not enough bricks total
+  if(goal%sz_big > small*sz_small):
+    return False
+    
+  elif(goal > big*sz_big + small*sz_small):
+    return False
+    
+    
+  return True
+
+
+
 """
 
 Logic-2 > lone_sum
@@ -26,6 +42,27 @@ lone_sum(3, 3, 3) → 0
 
 
 """
+
+def lone_sum(a, b, c):
+  if(a == b and a == c):
+    return 0
+  elif(a == b):
+    return c
+  elif(a == c):
+    return b
+  elif(b == c):
+    return a
+  else:
+    return a + b + c
+	
+
+def lone_sum(a, b, c):
+  sum = 0
+  if a != b and a != c: sum += a
+  if b != a and b != c: sum += b
+  if c != a and c != b: sum += c
+  
+  return sum
 
 """
 
@@ -43,6 +80,18 @@ lucky_sum(1, 13, 3) → 1
 
 """
 
+def lucky_sum(a, b, c):
+  if(a == 13):
+    return 0
+  elif(b == 13):
+    return a
+  elif(c == 13):
+    return a + b
+  else:
+    return a + b + c
+    
+	
+
 """
 
 Logic-2 > no_teen_sum
@@ -58,6 +107,20 @@ no_teen_sum(2, 13, 1) → 3
 no_teen_sum(2, 1, 14) → 3
 
 """
+
+def no_teen_sum(a, b, c):
+	sum = 0
+	
+	if(a not in range(13, 15) or a not in range(17, 20))
+		return sum += a
+		
+	if(b not in range(13, 15) or b not in range(17, 20))
+		return sum += b
+		
+	if(c not in range(13, 15) or c not in range(17, 20))
+		return sum += c
+		
+	return sum
 
 """
 
@@ -77,6 +140,21 @@ round_sum(6, 4, 4) → 10
 
 """
 
+def no_teen_sum(a, b, c):
+	sum = 0
+	
+	if(a not in range(13, 15) and a not in range(17, 20)):
+		sum += a
+		
+	if(b not in range(13, 15) and b not in range(17, 20)):
+		sum += b
+		
+	if(c not in range(13, 15) and c not in range(17, 20)):
+		sum += c
+		
+	return sum
+	
+	
 """
 
 Logic-2 > close_far
@@ -91,6 +169,30 @@ close_far(4, 1, 3) → True
 
 """
 
+def round_sum(a, b, c):
+  sum = 0
+  
+  a_mod = a%10
+  b_mod = b%10
+  c_mod = c%10
+  
+  if(a_mod >= 5):
+    sum += a - a_mod + 10
+  else:
+    sum += a - a_mod
+  
+  if(b_mod >= 5):
+    sum += b - b_mod + 10
+  else:
+    sum += b - b_mod
+    
+  if(c_mod >= 5):
+    sum += c - c_mod + 10
+  else:
+    sum += c - c_mod
+
+  return sum
+  
 """
 
 Logic-2 > make_chocolate
