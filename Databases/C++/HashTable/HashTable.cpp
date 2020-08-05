@@ -18,10 +18,8 @@ HashTable::HashTable()
     for(int i = 0; i < sz; i++)
     {
         arr[i] = new Node;
-        arr[i]->name = empty;
-        arr[i]->phone = 0;
-        arr[i]->age = 0;
-        arr[i]->address = empty;
+        arr[i]->word = "";
+        arr[i]->def = "";
         arr[i]->ptr = NULL;
     }
 }
@@ -49,33 +47,27 @@ HashTable::~HashTable()
 
 void HashTable::add(const struct PersonalData p)
 {   
-    unsigned int hashVal = hash_gen(p.phone);
+    unsigned int hashVal = hash_gen(p.word);
 
     Node* tempPtr = arr[hashVal];
     
-    if(tempPtr->name == empty)
+    if(tempPtr->word == "")
     {
-        tempPtr->name = p.name;
-        tempPtr->address = p.address;
-        tempPtr->age = p.age;
-        tempPtr->phone = p.phone;
+        tempPtr->word = p.word;
+        tempPtr->def = p.def;
         tempPtr->ptr = NULL;
     }
     else
     {
         Node* newNode = new Node;
     
-        newNode->name = p.name;
-        newNode->address = p.address;
-        newNode->age = p.age;
-        newNode->phone = p.phone;
+        newNode->word = p.word;
+        newNode->def = p.def;
         newNode->ptr = NULL;
     
         while(tempPtr->ptr != NULL)
         {
             tempPtr = tempPtr->ptr;
-
-            cout<<endl<<5<<endl;
         }
         
         tempPtr->ptr = newNode;
@@ -85,7 +77,7 @@ void HashTable::add(const struct PersonalData p)
 
 
 
-unsigned int HashTable::hash_gen(const int inVal)
+unsigned int HashTable::hash_gen(const string inVal)
 {
     return inVal%sz;
 }
@@ -94,15 +86,14 @@ void HashTable::view()
 {
     for(int i = 0; i < sz; i++)
     {
-        if(arr[i]->age != 0)
+        if(arr[i]->word != "")
         {
             cout<<"arr[ "<<i<<" ]->";
             Node *temp = arr[i];
             
             while(temp != NULL)
             {
-                cout<<"\t"<<temp->name<<"\n\t\t-> "<<temp->address<<"\n\t\t-> "
-                    <<temp->age<<"\n\t\t-> "<<temp->phone<<endl<<endl;
+                cout<<"\t"<<temp->word<<"\n\t\t-> "<<temp->temp->def<<endl<<endl;
                 
                 temp = temp->ptr; 
             }

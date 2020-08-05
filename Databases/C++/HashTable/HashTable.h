@@ -22,7 +22,8 @@ using namespace std;
     
 struct PersonalData
 {
-    string name;
+    string word;
+    string def;
     int age;
     unsigned long long int phone;
     string address;
@@ -38,10 +39,8 @@ private:
     
     struct Node
     {
-        string name;
-        int age;
-        long int phone;
-        string address;
+        string word;
+        string def;
         Node *ptr;
     };
     
