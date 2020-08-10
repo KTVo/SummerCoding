@@ -126,3 +126,42 @@
 #	to avoid relearning it
 	
 #	*** In the end, be able to redo the problem from scratch.
+
+
+#Mastering the Debuggery:
+-------------------------
+
+#1
+#What is debugging?
+#The process of finding the reason why your code is not working as intended
+
+#2
+# To be a good debugger:
+--------------------------
+1) Mindset Change - Do not freak out or be lazy when something breaks.
+						Go from a Do-er mindset -> Doctor mindset
+						
+						I need to become curious about what's wrong
+						
+						I need to slow down line-by-line to figure out the bug
+							Rushing debugging will only take longer
+							Spend a lot of time to think and analyze code
+							
+						Errors = I've overlooked something ALWAYS
+						
+					Check for and read for errors and exception 
+						^The little message the compiler gives you
+						
+2) Understand the debugger I am using
+
+3) Use debugging tools
+	1. The Debugger - placing breakpoints
+	
+4) Double check logic
+
+5) Always assume that there's Human Error
+
+6) Make small changes and check it often
+
+7) Know when to take mental breaks					
+						

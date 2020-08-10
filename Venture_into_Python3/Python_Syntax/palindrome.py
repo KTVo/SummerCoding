@@ -1,5 +1,5 @@
 import math
-
+import numpy
 def isPalindrome(str):
   sz = len(str)
   
