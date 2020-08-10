@@ -111,7 +111,7 @@ print('\nRandom starting synaptic weights: ')
 print(synaptic_weights)
 
 #our for loop starting at 1
-for iteration in range(1):
+for iteration in range(20000):
     input_layer = training_inputs
 
     outputs = sigmoid(np.dot(input_layer, synaptic_weights))
